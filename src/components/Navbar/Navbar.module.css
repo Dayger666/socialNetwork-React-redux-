@@ -1,0 +1,18 @@
+.nav{
+    background-color:crimson;
+  grid-area: n;
+  padding:20px;
+  }
+  .item{
+      color:blue;
+  }
+  .item a{
+      color:white;
+      text-decoration: none;
+  }
+  .item a:active{
+      color:black;
+  }
+  .item .active{
+color:gold;
+  }
