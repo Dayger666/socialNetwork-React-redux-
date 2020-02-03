@@ -1,18 +1,22 @@
 .nav{
-    background-color:crimson;
   grid-area: n;
   padding:20px;
   }
   .item{
       color:blue;
-  }
+      margin-bottom: 20px;
+ 
+    }
   .item a{
-      color:white;
+      display: block;
+      color:#6d6e71;
       text-decoration: none;
   }
-  .item a:active{
-      color:black;
+ 
+.item .active{
+color:black;
+background:rgb(188, 187, 194)
   }
-  .item .active{
-color:gold;
+  .item:hover {
+    background:rgb(188, 187, 194)
   }
