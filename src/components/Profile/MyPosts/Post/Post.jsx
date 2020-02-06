@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Post.module.css';
-import {likeCounter} from "../../../../redux/state";
+import {likeCounter} from "../../../../redux/Profile-reducer";
+
 const Post =(props)=>{
     const counter=()=>{
         props.dispatch(likeCounter(props.id));
