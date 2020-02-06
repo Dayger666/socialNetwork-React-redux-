@@ -1,23 +1,28 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
-const MyPosts =(props)=>{
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
 
+
+
+const MyPosts =(props)=>{
 let newPost=React.createRef();
 let addPost=()=>{
-  console.log(props.addPost);
-  let text=newPost.current.value;
- props.addPost(text);
- newPost.current.value="";
-}
-const postsElements=props.posts.map((post)=><Post message={post.message}/>) 
+
+ props.dispatch(addPostActionCreator());
+};
+const postsElements=props.posts.map((post)=><Post message={post.message} like={post.like} dispatch={props.dispatch} id={post.id} />);
+let postChange=()=>{
+let text =newPost.current.value; 
+props.dispatch(updateNewPostTextActionCreator(text));
+};
 
     return (
 <div className={classes.postsBlock}>
   MyPosts
   <div>new post
     <div>
-  <textarea ref={newPost}></textarea>
+  <textarea onChange={postChange} ref={newPost} value={props.newPostText}/>
   </div>
   <div>
   <button onClick={addPost}>add post</button>
@@ -28,5 +33,5 @@ const postsElements=props.posts.map((post)=><Post message={post.message}/>)
   </div>
   </div>
     );
-}
+};
 export default  MyPosts;
