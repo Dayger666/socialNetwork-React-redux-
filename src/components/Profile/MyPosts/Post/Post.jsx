@@ -1,10 +1,9 @@
 import React from 'react';
 import classes from './Post.module.css';
-import {likeCounter} from "../../../../redux/Profile-reducer";
 
 const Post =(props)=>{
     const counter=()=>{
-        props.dispatch(likeCounter(props.id));
+       props.updateLike(props.id);
     };
     return (
   <div className={classes.item}>
@@ -13,6 +12,7 @@ const Post =(props)=>{
     <div>
     <span onClick={counter}>like</span>
         <span>{props.like}</span>
+        <span className={classes.date}>{props.date}</span>
     </div>
     </div>
     );

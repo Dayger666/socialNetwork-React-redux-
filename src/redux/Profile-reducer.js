@@ -2,18 +2,29 @@ const ADD_POST = 'ADD-POST';
 const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT';
 const LIKE_COUNTER = 'LIKE-COUNTER';
 
-const profileReducer=(state,action)=>{
+
+let initialState={
+    posts:[
+        {id:1,message:'Hi,it is my first project',like:0,date:'1 Jan 2011, 00:00:00'},
+        {id:2,message:'AYE',like:0,date:'1 Jan 2011, 00:00:00'},
+        {id:3,message:'QQQQQQQQQQQQQQQq',like:0,date:'1 Jan 2011, 00:00:00'},
+    ],
+    newPostText:'',
+};
+
+const profileReducer=(state=initialState,action)=>{
     switch(action.type) {
         case ADD_POST:
-            if(state.newPostText!=='') {
+
                 let newPost = {
                     id: 5,
                     message: state.newPostText,
                     like: 0,
+                    date:new Date().toLocaleString(),
                 };
                 state.posts.push(newPost);
                 state.newPostText = '';
-            }
+
             return state;
         case CHANGE_NEW_POST_TEXT:
             state.newPostText = action.newText;

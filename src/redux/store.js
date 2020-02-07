@@ -48,4 +48,3 @@ subscribe(observer){
 
     }
 };
-export default store;

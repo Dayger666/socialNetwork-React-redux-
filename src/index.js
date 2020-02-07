@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from './redux/store.js'
+import store from './redux/redux-store.js'
 import {BrowserRouter} from 'react-router-dom';
 
 let renderEntireTree=(state)=>{
@@ -13,8 +13,11 @@ ReactDOM.render(
     dispatch={store.dispatch.bind(store)} />
      </BrowserRouter>,
       document.getElementById('root'));
-}
-store.subscribe(renderEntireTree);
+};
+store.subscribe(()=>{
+     let state=store.getState();
+     renderEntireTree(state);
+});
 renderEntireTree(store.getState());
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

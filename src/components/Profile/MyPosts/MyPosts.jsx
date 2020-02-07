@@ -7,14 +7,15 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 
 const MyPosts =(props)=>{
 let newPost=React.createRef();
-let addPost=()=>{
+let onAddPost=()=>{
+  props.addPost();
+  newPost.current.value='';
 
- props.dispatch(addPostActionCreator());
 };
-const postsElements=props.posts.map((post)=><Post message={post.message} like={post.like} dispatch={props.dispatch} id={post.id} />);
+const postsElements=props.posts.map((post)=><Post message={post.message} like={post.like} updateLike={props.updateLike} id={post.id} date={post.date} />);
 let postChange=()=>{
-let text =newPost.current.value; 
-props.dispatch(updateNewPostTextActionCreator(text));
+let text =newPost.current.value;
+props.updateNewPostText(text);
 };
 
     return (
@@ -25,7 +26,7 @@ props.dispatch(updateNewPostTextActionCreator(text));
   <textarea onChange={postChange} ref={newPost} value={props.newPostText}/>
   </div>
   <div>
-  <button onClick={addPost}>add post</button>
+  <button onClick={onAddPost}>add post</button>
   </div>
   </div>
   <div className={classes.posts}>
