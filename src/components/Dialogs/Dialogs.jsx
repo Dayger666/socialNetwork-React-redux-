@@ -7,11 +7,13 @@ import {addNewMsg, updateNewMsgText} from "../../redux/Messages-reducer";
 
 
 const Dialogs =(props)=>{
+
+    let state=props.DialogsPage;
     let newMessage=React.createRef();
-    let dialogsElements=props.dialogs
+    let dialogsElements=state.dialogs
     .map((dialog)=> <DialogItem name={dialog.name} id={dialog.id}/>);
 
-    let messagesElements=props.messages
+    let messagesElements=state.messages
     .map((message)=><Message message={message.message}/>);
 
 let sendMessage=()=>{
@@ -33,7 +35,7 @@ let msgChange=(e)=>{
         <div>
         {messagesElements}
         <div>
-            <div> <textarea ref={newMessage} placeholder='Enter your message' onChange={msgChange}  value={props.newMsgText}/></div>
+            <div> <textarea ref={newMessage} placeholder='Enter your message' onChange={msgChange}  value={state.newMessageText}/></div>
             <div><button onClick={sendMessage}>Send</button></div>
         </div>
         </div>

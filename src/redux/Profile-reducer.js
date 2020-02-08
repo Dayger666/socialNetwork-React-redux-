@@ -13,22 +13,22 @@ let initialState={
 };
 
 const profileReducer=(state=initialState,action)=>{
+    let stateCopy={...state};
     switch(action.type) {
         case ADD_POST:
-
                 let newPost = {
-                    id: 5,
+                    id: state.posts[state.posts.length-1].id+1,
                     message: state.newPostText,
                     like: 0,
                     date:new Date().toLocaleString(),
                 };
-                state.posts.push(newPost);
-                state.newPostText = '';
-
-            return state;
+                stateCopy.posts=[...state.posts];
+                stateCopy.posts.unshift(newPost);
+                stateCopy.newPostText = '';
+            return stateCopy;
         case CHANGE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
         case LIKE_COUNTER:
 
             state.posts.forEach((values, item, arr) => {

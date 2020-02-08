@@ -4,20 +4,24 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import {addNewMsg, updateNewMsgText} from "../../redux/Messages-reducer";
 import Dialogs from "./Dialogs";
+import {connect} from "react-redux";
 
-
-
-const DialogsContainer =(props)=>{
-
-let sendMessage=()=>{
-    props.dispatch(addNewMsg());
+let mapStateToProps=(state)=>{
+    return{
+        DialogsPage:state.DialogsPage
+    }
 };
-let msgChange=(text)=>{
-        props.dispatch(updateNewMsgText(text));
-    };
+let mapDispatchToProps=(dispatch)=>{
+    return{
+        msgChange:(text)=>{
+           dispatch(updateNewMsgText(text));
+        },
+        sendMessage:()=>{
+           dispatch(addNewMsg());
+        }
+    }
 
-    return (
-        <Dialogs msgChange={msgChange} sendMessage={sendMessage} dialogs={props.dialogs} messages={props.messages}/>
-    );
 };
+
+let DialogsContainer=connect(mapStateToProps,mapDispatchToProps)(Dialogs);
 export default DialogsContainer;
