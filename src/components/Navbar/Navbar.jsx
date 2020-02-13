@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Navbar.module.css';
 import {NavLink} from 'react-router-dom';
-const Navbar =()=>{
+const Navbar =(props)=>{
     return (
 <nav className={classes.nav}>
   <div className={classes.item}>
@@ -19,7 +19,10 @@ const Navbar =()=>{
   <div className={classes.item}>
     <NavLink to='/settings' activeClassName={classes.active}>Settings</NavLink>
   </div>
+  <div className={classes.item}>
+    <NavLink to='/users' activeClassName={classes.active}>Users</NavLink>
+  </div>
   </nav>
     );
-}
+};
 export default Navbar;

@@ -1,8 +1,8 @@
 .content{
-    background-color:green;
   grid-area: c;
   }
 .postsBlock{
+    background-color:#edeef0;
   padding:10px;
 }
 .posts{

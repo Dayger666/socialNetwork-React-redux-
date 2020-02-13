@@ -1,6 +1,6 @@
 .nav{
   grid-area: n;
-  padding:20px;
+  padding:20px 20px 20px 300px;
   }
   .item{
       color:blue;
@@ -9,13 +9,13 @@
     }
   .item a{
       display: block;
-      color:#6d6e71;
+      color:#1a1a1a;
       text-decoration: none;
   }
  
 .item .active{
-color:black;
-background:rgb(188, 187, 194)
+color:#1a1a1a;
+    font-weight: bold;
   }
   .item:hover {
     background:rgb(188, 187, 194)

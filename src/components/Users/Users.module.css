@@ -1,0 +1,14 @@
+.item{
+    color:mediumvioletred;
+}
+.item img{
+    height:100px;
+    width:150px;
+    border-radius: 50px;
+}
+.date{
+    margin-left: 250px;
+}
+.selectedPage{
+    font-weight:bold;
+}

@@ -1,6 +1,6 @@
 .header{
     grid-area: h;
-    background-color:red;
+    background-color:#333;
     /* border-radius: 0 0 40px 40px; */
     }
     .header img{
@@ -12,4 +12,7 @@
         transition: 5s;
         margin-left: 1000px;
         margin-top: 600px;
+    }
+    .loginBlock a{
+        color:white;
     }
