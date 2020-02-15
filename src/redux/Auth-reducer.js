@@ -1,3 +1,6 @@
+import {setIsFollowing, unFollow} from "./Users-reducer";
+import {authAPI, userAPI} from "../api/api";
+
 const SET_USER_DATA='SET-USER-DATA';
 
 let initialState={
@@ -30,5 +33,14 @@ export let setUserData=(userId,email,login)=>{
     }
 };
 
+export let setUserDataThunkCreator=()=>{
+    return (dispatch)=>{
+        authAPI.authMe().then((res)=>{
+            if(res.resultCode===0) {
+                dispatch(setUserData(res.data.id,res.data.email,res.data.login));
+            }
+        })
+    }
+};
 
 export default authReducer;

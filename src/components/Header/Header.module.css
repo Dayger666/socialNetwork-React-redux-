@@ -13,6 +13,22 @@
         margin-left: 1000px;
         margin-top: 600px;
     }
-    .loginBlock a{
-        color:white;
+
+    .loginBtn{
+        cursor: pointer;
+        background: #27aae1;
+        padding: 7px 25px;
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        outline: none;
+        border-radius: 30px;
+    }
+    .loginBlock{
+        position:absolute;
+        right:8%;
+        top:1%;
+        font-size: 14px;
+        color: #fff;
+        font-weight: 600;
     }

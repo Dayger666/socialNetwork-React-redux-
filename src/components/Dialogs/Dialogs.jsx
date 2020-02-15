@@ -3,11 +3,14 @@ import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import {addNewMsg, updateNewMsgText} from "../../redux/Messages-reducer";
+import {Redirect} from "react-router-dom";
 
 
 
 const Dialogs =(props)=>{
-
+    if(props.isAuth===false){
+        return <Redirect to='/login'/>;
+    }
     let state=props.DialogsPage;
     let newMessage=React.createRef();
     let dialogsElements=state.dialogs

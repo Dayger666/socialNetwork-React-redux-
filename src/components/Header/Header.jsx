@@ -5,10 +5,10 @@ import {NavLink} from "react-router-dom";
 const Header =(props)=>{
     return (
 <header className={classes.header}>
-  <img src='https://www.instagram.com/p/BtvLxWtDvp_/media/?size=l' alt='qew'></img>
+  <img src='https://www.instagram.com/p/BtvLxWtDvp_/media/?size=l' alt='qew'/>
     <span className={classes.loginBlock}>
-        {props.isAuth?props.login:
-        <NavLink to={'/login'}>Login</NavLink>}
+        {props.isAuth?<span>{props.login}</span>:
+        <NavLink to={'/login'}><button className={classes.loginBtn} type='button'>Log in</button></NavLink>}
 
     </span>
 </header>

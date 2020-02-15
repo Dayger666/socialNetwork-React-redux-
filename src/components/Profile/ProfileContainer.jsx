@@ -1,35 +1,51 @@
 import React from 'react';
 import Profile from "./Profile";
-import * as axios from "axios";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../redux/Profile-reducer";
+import {
+    setUserProfile,
+    setUserProfileThunkCreator,
+    setUserStatusThunkCreator,
+    updateUserStatusThunkCreator
+} from "../../redux/Profile-reducer";
 import {withRouter} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
 
-        let userId=this.props.match.params.userId;
-        if(!userId){
-            userId=3;
+        let userId = this.props.match.params.userId;
+        if (!userId) {
+            userId = 3;
         }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`).then((res) => {
-            console.log(res.data);
-            this.props.setUserProfile(res.data);
-        })
+        this.props.setUserProfileThunkCreator(userId);
+        this.props.setUserStatusThunkCreator(userId);
     }
-   render(){
-       return <Profile {...this.props} profile={this.props.profile}/>
-   }
+
+    render() {
+
+        return <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateUserStatusThunkCreator}/>
+    }
 
 }
 
-let mapStateToProps=(state)=>{
-    return{
-  profile:state.ProfilePage.profile,
+let mapStateToProps = (state) => {
+    return {
+        profile: state.ProfilePage.profile,
+        status:state.ProfilePage.status,
     }
 };
-
-let withUrlDataProfileContainer = withRouter(ProfileContainer);
-export default connect(mapStateToProps,{setUserProfile})(withUrlDataProfileContainer);
+// let authRedirectComponent=withAuthRedirect(ProfileContainer);
+//
+//
+//
+// let withUrlDataProfileContainer = withRouter(authRedirectComponent);
+export default compose(connect(mapStateToProps, {
+    setUserProfile,
+    setUserProfileThunkCreator,
+    setUserStatusThunkCreator,
+    updateUserStatusThunkCreator,
+}), withRouter, withAuthRedirect)(ProfileContainer)
+// connect(mapStateToProps, {setUserProfile})(withUrlDataProfileContainer);

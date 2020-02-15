@@ -11,3 +11,9 @@ border:5px solid white;
   .descriptionBlock{
     padding:10px;
   }
+  .status{
+      cursor: pointer;
+  }
+.status:hover {
+    background:rgb(188, 187, 194)
+}

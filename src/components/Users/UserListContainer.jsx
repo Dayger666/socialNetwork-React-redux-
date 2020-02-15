@@ -1,17 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import UserList from "./UserList";
-import {
-    follow, getUsersThunkCreator,
-    setCurrentPage, setFollowThunkCreator,
-    setIsFetching,
-    setIsFollowing,
-    setTotalUsersCount, setUnFollowThunkCreator,
-    setUsers,
-    unFollow
-} from "../../redux/Users-reducer";
-import * as axios from "axios";
-import {userAPI} from "../../api/api";
+import {getUsersThunkCreator, setFollowThunkCreator, setUnFollowThunkCreator} from "../../redux/Users-reducer";
 
 
 class UserListSideContainer extends React.Component{

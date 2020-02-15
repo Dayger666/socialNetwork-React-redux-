@@ -1,11 +1,11 @@
 import React from 'react';
 import classes from './Friends.module.css';
-import {NavLink} from 'react-router-dom';
-const Friends =(props)=>{
+
+const Friends = (props) => {
     return (
-       <div className={classes.main}>
-           Friends wil be heresgdddddddddddddddd
-       </div>
+        <div className={classes.main}>
+            Friends wil be heresgdddddddddddddddd
+        </div>
     );
 };
 export default Friends;

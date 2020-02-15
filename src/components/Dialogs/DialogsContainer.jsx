@@ -1,14 +1,12 @@
 import React from 'react';
- import classes from './Dialogs.module.css';
-import DialogItem from './DialogItem/DialogItem';
-import Message from './Message/Message';
 import {addNewMsg, updateNewMsgText} from "../../redux/Messages-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 
 let mapStateToProps=(state)=>{
     return{
-        DialogsPage:state.DialogsPage
+        DialogsPage:state.DialogsPage,
+        isAuth: state.auth.isAuth,
     }
 };
 let mapDispatchToProps=(dispatch)=>{
