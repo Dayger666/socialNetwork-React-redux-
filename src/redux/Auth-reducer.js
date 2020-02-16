@@ -16,11 +16,6 @@ const authReducer=(state=initialState,action)=>{
                 ...state,
                 ...action.data,
             };
-        case 'SET-IS-AUTH':
-            return {
-                ...state,
-                isAuth:action.isAuth,
-            };
         default:
             return state;
     }
@@ -37,15 +32,10 @@ export let setUserData=(userId,email,login,isAuth)=>{
         }
     }
 };
-export let setIsAuth=(isAuth)=>{
-    return {
-        type:'SET-IS-AUTH',
-        isAuth,
-    }
-};
+
 export let setUserDataThunkCreator=()=>{
     return (dispatch)=>{
-        authAPI.authMe().then((res)=>{
+       return authAPI.authMe().then((res)=>{
             if(res.resultCode===0) {
                 dispatch(setUserData(res.data.id,res.data.email,res.data.login,true));
             }
@@ -65,7 +55,7 @@ export let logOutThunkCreator=()=>{
     return (dispatch)=>{
         authAPI.logOut().then((res)=>{
             if(res.data.resultCode===0) {
-                dispatch(setIsAuth(false));
+                dispatch(setUserData(null,null,null,false));
             }
         })
     }

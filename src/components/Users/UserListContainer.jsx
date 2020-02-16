@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import UserList from "./UserList";
 import {getUsersThunkCreator, setFollowThunkCreator, setUnFollowThunkCreator} from "../../redux/Users-reducer";
+import {getPageSize, getUsers} from "../../redux/users-selectors";
 
 
 class UserListSideContainer extends React.Component{
@@ -31,16 +32,16 @@ class UserListSideContainer extends React.Component{
     }
 }
 
-let mapStateToProps = (state) => {
-    return {
-        users: state.UsersPage.users,
-        pageSize:state.UsersPage.pageSize,
-        totalUsersCount:state.UsersPage.totalUsersCount,
-        currentPage:state.UsersPage.currentPage,
-        isFetching:state.UsersPage.isFetching,
-        isFollowing:state.UsersPage.isFollowing,
-    }
-};
+// let mapStateToProps = (state) => {
+//     return {
+//         users: state.UsersPage.users,
+//         pageSize:state.UsersPage.pageSize,
+//         totalUsersCount:state.UsersPage.totalUsersCount,
+//         currentPage:state.UsersPage.currentPage,
+//         isFetching:state.UsersPage.isFetching,
+//         isFollowing:state.UsersPage.isFollowing,
+//     }
+// };
 // let mapDispatchToProps = (dispatch) => {
 //     return {
 //         follow: (id) => {
@@ -67,5 +68,15 @@ let mapStateToProps = (state) => {
 //     }
 // };
 //make {body} instead mapDispatchToProps in connect
+let mapStateToProps = (state) => {
+    return {
+        users: getUsers(state),
+        pageSize:getPageSize(state),
+        totalUsersCount:state.UsersPage.totalUsersCount,
+        currentPage:state.UsersPage.currentPage,
+        isFetching:state.UsersPage.isFetching,
+        isFollowing:state.UsersPage.isFollowing,
+    }
+};
 let UserListContainer = connect(mapStateToProps,{getUsersThunkCreator,setFollowThunkCreator,setUnFollowThunkCreator})(UserListSideContainer);
 export default UserListContainer;

@@ -8,6 +8,7 @@ import {Field, reduxForm} from "redux-form";
 
 const Dialogs =(props)=>{
     if(props.isAuth===false){
+        debugger;
         return <Redirect to='/login'/>;
     }
     let state=props.DialogsPage;
