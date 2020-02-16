@@ -13,7 +13,6 @@ let initialState={
         {id:2,message:'AYE',like:0,date:'1 Jan 2011, 00:00:00'},
         {id:1,message:'QQQQQQQQQQQQQQQq',like:0,date:'1 Jan 2011, 00:00:00'},
     ],
-    newPostText:'',
     profile:null,
     status:"",
 
@@ -27,14 +26,13 @@ const profileReducer=(state=initialState,action)=>{
         case ADD_POST:
                 let newPost = {
                     id: state.posts[0].id+1,
-                    message: state.newPostText,
+                    message: action.newPostText,
                     like: 0,
                     date:new Date().toLocaleString(),
                 };
             return {
                 ...state,
                 posts:[newPost,...state.posts,],
-                newPostText:''
             };
         case CHANGE_NEW_POST_TEXT:
             return {
@@ -64,13 +62,7 @@ const profileReducer=(state=initialState,action)=>{
             return state;
     }
 };
-export let addPostActionCreator=()=>({type: ADD_POST,});
-export let updateNewPostTextActionCreator=(text)=>{
-    return {
-        type: CHANGE_NEW_POST_TEXT,
-        newText:text,
-    }
-};
+export let addPostActionCreator=(value)=>({type: ADD_POST,newPostText:value});
 export let likeCounter=(id)=>{
     return {
         type:LIKE_COUNTER,

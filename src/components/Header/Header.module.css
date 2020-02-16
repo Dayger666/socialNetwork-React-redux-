@@ -13,7 +13,9 @@
         margin-left: 1000px;
         margin-top: 600px;
     }
-
+.login{
+    padding-right: 10px;
+}
     .loginBtn{
         cursor: pointer;
         background: #27aae1;

@@ -6,17 +6,13 @@ import MyPosts from "./MyPosts";
 let mapStateToProps = (state) => {
     return {
         posts: state.ProfilePage.posts,
-        newPostText:state.ProfilePage.newPostText,
     }
 };
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewPostText: (text) => {
-            let action = updateNewPostTextActionCreator(text);
-            dispatch(action);
-        },
-        addPost: () => {
-            dispatch(addPostActionCreator());
+
+        addPost: (value) => {
+            dispatch(addPostActionCreator(value));
         },
         updateLike: (id) => {
             dispatch(likeCounter(id));

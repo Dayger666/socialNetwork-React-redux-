@@ -6,7 +6,7 @@ grid-template-columns: 2fr 10fr;
 padding:10px;
 }
 .dialog a{
-    color:white;
+    color:black;
     text-decoration: none;
 }
 

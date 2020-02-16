@@ -11,11 +11,8 @@ let mapStateToProps=(state)=>{
 };
 let mapDispatchToProps=(dispatch)=>{
     return{
-        msgChange:(text)=>{
-           dispatch(updateNewMsgText(text));
-        },
-        sendMessage:()=>{
-           dispatch(addNewMsg());
+        sendMessage:(value)=>{
+           dispatch(addNewMsg(value));
         }
     }
 

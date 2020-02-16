@@ -17,34 +17,22 @@ let initialState={
         {id:4,message:'Dafsasfimych4'},
         {id:5,message:'Dasfafsimych5'},
     ],
-    newMessageText:'',
 };
 const messagesReducer=(state=initialState,action)=>{
     switch(action.type){
         case ADD_NEW_MSG:
             return {
                 ...state,
-                newMessageText:'',
-                messages:[ ...state.messages,{id:state.messages[state.messages.length-1].id+1,message:state.newMessageText}]
-            };
-        case UPDATE_NEW_MSG_TEXT:
-            return {
-                ...state,
-                newMessageText:action.newText
+                messages:[ ...state.messages,{id:state.messages[state.messages.length-1].id+1,message:action.newMsg}]
             };
         default:
             return state;
     }
 };
-export let addNewMsg=()=>{
+export let addNewMsg=(value)=>{
     return {
         type:ADD_NEW_MSG,
-    }
-};
-export let updateNewMsgText=(text)=>{
-    return {
-        type: UPDATE_NEW_MSG_TEXT,
-        newText:text,
+        newMsg:value,
     }
 };
 export default messagesReducer;
