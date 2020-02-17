@@ -7,7 +7,6 @@ export class ProfileStatus extends React.Component {
         editMode: false,
         status: this.props.status,
     };
-
     onStatusChange=(e)=>{
     this.setState({
         status:e.currentTarget.value,
@@ -20,7 +19,6 @@ export class ProfileStatus extends React.Component {
             })
     }
     }
-
     render() {
 
         return (
