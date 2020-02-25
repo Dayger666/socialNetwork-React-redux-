@@ -5,15 +5,25 @@
     padding-top:20px;
 }
   .mainImg img{
-      width:500px;
-border:5px solid white;
+      border-radius: 1000px;
+      width:400px;
+    border:5px solid white;
+      margin-left:10px ;
   }
   .descriptionBlock{
     padding:10px;
   }
-  .status{
+  .status,.statusInput{
       cursor: pointer;
   }
 .status:hover {
     background:rgb(188, 187, 194)
+}
+.name{
+    padding-bottom: 10px;
+    color: #27aae1;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
 }

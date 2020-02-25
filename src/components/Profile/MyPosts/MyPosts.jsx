@@ -14,8 +14,7 @@ let onAddPost=(value)=>{
 }
     return (
 <div className={classes.postsBlock}>
-  MyPosts
-  <div>new post
+  <div>
     <PostReduxForm onSubmit={onAddPost}/>
   </div>
   <div className={classes.posts}>

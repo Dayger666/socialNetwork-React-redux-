@@ -18,12 +18,12 @@ class UserListSideContainer extends React.Component{
     render(){
         return(
             <UserList totalUserCount={this.props.totalUsersCount}
-                         pageSize={this.props.pageSize}
-                         currentPage={this.props.currentPage}
-                         users={this.props.users}
-                         onPageChanged={this.onPageChanged}
-                         isFetching={this.props.isFetching}
-                         isFollowing={this.props.isFollowing}
+                      pageSize={this.props.pageSize}
+                      currentPage={this.props.currentPage}
+                      users={this.props.users}
+                      onPageChanged={this.onPageChanged}
+                      isFetching={this.props.isFetching}
+                      isFollowing={this.props.isFollowing}
                       setFollowThunkCreator={this.props.setFollowThunkCreator}
                       setUnFollowThunkCreator={this.props.setUnFollowThunkCreator}
 

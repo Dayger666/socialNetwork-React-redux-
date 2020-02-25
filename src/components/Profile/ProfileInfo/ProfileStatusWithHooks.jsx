@@ -11,14 +11,13 @@ export let ProfileStatusWithHooks =(props)=>{
 
     let onStatusChange=(e)=>{
             setStatus(e.currentTarget.value)
-
     };
         return (
             <div>
                 {
                     editMode ?
                         <div>
-                            <input onChange={onStatusChange}
+                            <input className={classes.statusInput} onChange={onStatusChange}
                                     autoFocus={true} onBlur={() => {
                                 setEditMode(false);
                                 props.updateStatus(status);

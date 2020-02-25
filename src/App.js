@@ -7,7 +7,6 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UserListContainer from "./components/Users/UserListContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
 import Friends from "./components/Friends/Friends";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginContainer from "./components/Login/Login";
@@ -15,6 +14,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import Preloader from "./components/Common/Preloader/Preloader";
 import {initializeApp} from "./redux/App-reducer";
+import ProfileContainerWithHooks from "./components/Profile/ProfileContainerWithHooks";
 
 
 class App extends React.Component {
@@ -30,7 +30,7 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+                    <Route path='/profile/:userId?' render={() => <ProfileContainerWithHooks/>}/>
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>
