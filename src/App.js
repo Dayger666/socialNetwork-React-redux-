@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import {Route, withRouter} from 'react-router-dom';
 import News from './components/News/News';
@@ -15,7 +14,7 @@ import {compose} from "redux";
 import Preloader from "./components/Common/Preloader/Preloader";
 import {initializeApp} from "./redux/App-reducer";
 import ProfileContainerWithHooks from "./components/Profile/ProfileContainerWithHooks";
-
+import classes from './AppStyle.module.css';
 
 class App extends React.Component {
     state = {
@@ -34,11 +33,11 @@ class App extends React.Component {
           return <Preloader/>
         }
         return (
-            <div className='app-wrapper'>
+            <div className={classes.appWrapper}>
                 <HeaderContainer navbarToggle={this.onNavbarChange}/>
 
                 {!this.state.navbarIsHidden&&<Navbar/>}
-                <div className="app-wrapper-content">
+                <div className={classes.content}>
                     <Route path='/profile/:userId?' render={() => <ProfileContainerWithHooks/>}/>
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                     <Route path='/news' render={() => <News/>}/>
