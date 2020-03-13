@@ -4,11 +4,10 @@
   margin: 0 auto;
 
   grid-template-areas:
-  "h h h"
+  "n h h"
   "n c q";
   grid-template-rows: 60px 1fr;
-  grid-template-columns: 5fr 13fr 2fr;
-  grid-gap: 5px;
+  grid-template-columns: 0fr 13fr 2fr;
 
 }
 

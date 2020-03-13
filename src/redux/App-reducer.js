@@ -2,9 +2,11 @@ import {setUserDataThunkCreator} from "./Auth-reducer";
 
 
 const SET_USER_CONFIRMED='SET-USER-CONFIRMED';
+const SET_HEADER_HIDDEN='SET-HEADER-HIDDEN';
 
 let initialState={
     initialized:false,
+    headerHidden:false,
 };
 const appReducer=(state=initialState,action)=>{
     switch(action.type){
@@ -12,6 +14,11 @@ const appReducer=(state=initialState,action)=>{
             return {
                 ...state,
                 initialized: true,
+            };
+        case SET_HEADER_HIDDEN:
+            return {
+              ...state,
+              headerHidden:!initialState.headerHidden,
             };
         default:
             return state;
@@ -22,6 +29,11 @@ const appReducer=(state=initialState,action)=>{
 export let setConfirmed=()=>{
     return {
         type:SET_USER_CONFIRMED,
+    }
+};
+export let setHeaderHidden=()=>{
+    return {
+        type:SET_HEADER_HIDDEN,
     }
 };
 

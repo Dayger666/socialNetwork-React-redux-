@@ -11,7 +11,7 @@ const MyPosts =(props)=>{
 const postsElements=props.posts.map((post)=><Post message={post.message} like={post.like} updateLike={props.updateLike} id={post.id} date={post.date} />);
 let onAddPost=(value)=>{
   props.addPost(value.newPostText);
-}
+};
     return (
 <div className={classes.postsBlock}>
   <div>

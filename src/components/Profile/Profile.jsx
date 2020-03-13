@@ -9,10 +9,14 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 const Profile =(props)=>{
     return (
-<div>
+<div className={classes.content}>
+    <div className={classes.profile}>
   <ProfileInfo profile={props.profile} isAuth={props.isAuth} status={props.status} updateStatus={props.updateStatus}/>
+    </div>
+    <div className={classes.posts}>
   <MyPostsContainer/>
-  </div>
+    </div>
+    </div>
     );
 };
 export default Profile;

@@ -1,7 +1,13 @@
 .nav{
+    position:sticky; top:0;
+    background: #27aae1;
   grid-area: n;
-  padding:20px 20px 20px 300px;
+
+  padding:0px 100px 0 10px;
+    height: 100vh;
+
   }
+
   .item{
       color:blue;
       margin-bottom: 20px;

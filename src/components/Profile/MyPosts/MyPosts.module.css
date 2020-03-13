@@ -1,10 +1,13 @@
 .content{
   grid-area: c;
+
   }
 .postsBlock{
+    width: 1000px;
     background-color:#edeef0;
   padding:10px;
 }
 .posts{
+
   margin-top:10px;
 }

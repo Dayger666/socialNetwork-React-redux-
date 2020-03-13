@@ -1,13 +1,12 @@
 .header{
     grid-area: h;
     background-color:#333;
-    /* border-radius: 0 0 40px 40px; */
+    position:sticky; top:0;
     }
     .header img{
-
       width:40px;
     }
-    .header img:active{
+    .depo{
         transform: rotate(1700deg) scale(100);
         transition: 5s;
         margin-left: 1000px;
@@ -33,4 +32,10 @@
         font-size: 14px;
         color: #fff;
         font-weight: 600;
+    }
+    .navbarToggle{
+        width:40px;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-left: 5%;
     }

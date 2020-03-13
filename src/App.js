@@ -18,6 +18,14 @@ import ProfileContainerWithHooks from "./components/Profile/ProfileContainerWith
 
 
 class App extends React.Component {
+    state = {
+        navbarIsHidden: true,
+    };
+    onNavbarChange=()=>{
+        this.setState({
+            navbarIsHidden:!this.state.navbarIsHidden,
+        },()=>{})
+    };
     componentDidMount() {
         this.props.initializeApp();
     }
@@ -27,8 +35,9 @@ class App extends React.Component {
         }
         return (
             <div className='app-wrapper'>
-                <HeaderContainer/>
-                <Navbar/>
+                <HeaderContainer navbarToggle={this.onNavbarChange}/>
+
+                {!this.state.navbarIsHidden&&<Navbar/>}
                 <div className="app-wrapper-content">
                     <Route path='/profile/:userId?' render={() => <ProfileContainerWithHooks/>}/>
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/>
